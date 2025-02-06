@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row fxlayout="row" fxLayoutAlign="space-between center">
+            <span class="title-center">login</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-dialog-content>
+    <form [formGroup]="loginForm" fxLayout="column">
+        <mat-form-field>
+            <mat-label>email</mat-label>
+            <input matInput formControlName="email">
+            <mat-error *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid">
+                <span *ngIf="loginForm.controls.email.errors.required"></span>
+                <span *ngIf="loginForm.controls.email.errors.pattern"></span>
+            </mat-error>
+        </mat-form-field> 
+        <mat-form-field>
+            <mat-label>password</mat-label>
+            <input type="password" matInput formControlName="password" required maxlength="12" minlength="8">
+            <mat-error *ngIf="loginForm.controls.password.touched || loginForm.controls.password.invalid">
+            </mat-error>
+        </mat-form-field>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align = 'center'>
+    <button mat-raised-button color="primary" (click)="login()">Login</button>
+    <button mat-raised-button collor="red" mat-bialog-close>close</button>
+</mat-dialog-actions>

@@ -1,0 +1,36 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span>conger</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-dialog-content>
+    <form [formGroup]="timeForm">
+        <div class="container" fxLayout="column">
+            <mat-form-field>
+                <mat-label>date de sorté</mat-label>
+                <input matInput formControlName="TimeGoing" [matDatepicker]="picker1" >
+                <mat-hint>DD/MM/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+                <!-- <mat-error *ngIf="employeForm.controls.TimeGoing.touched && employeForm.controls.TimeGoing.invalid">
+                    <span ngIf="employeForm.controls.TimeGoing.errors.valid">votre date pas valider!</span>
+                </mat-error> -->
+              </mat-form-field> 
+              <mat-form-field>
+                <mat-label>date d'enter</mat-label>
+                <input matInput formControlName="openTime" [matDatepicker]="picker2" required>
+                <mat-hint>DD/MM/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+                <!-- <mat-error *ngIf="employeForm.controls.openTime.touched && employeForm.controls.openTime.invalid">
+                    <span ngIf="employeForm.controls.openTime.errors.valid">votre date pas valider!</span>
+                </mat-error> -->
+              </mat-form-field>
+                          
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="handlSave()">save</button>
+    <button mat-raised-button mat-dialog-close>close</button>
+</mat-dialog-actions>

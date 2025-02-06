@@ -1,0 +1,28 @@
+.body1{
+    background: linear-gradient(45deg,#f77a05,transparent,#0ddbff,transparent);
+    filter: hue-rotate(10deg);
+}
+mat-card{
+    animation: animate 6s linear infinite;
+}
+@keyframes animate {
+    0%{
+        filter: hue-rotate(430deg);
+    }
+    50%{
+        filter: hue-rotate(280deg);
+    }
+    100%{
+        filter: hue-rotate(430deg);
+    }
+}
+th{
+    font-size : 20px;
+}
+.tr1{
+    background: linear-gradient(180deg,#f77a05,transparent);
+}
+.tr2:hover{
+    background: linear-gradient(180deg,#27daf9,transparent);
+    /* background: rgb(234, 238, 238); */
+}

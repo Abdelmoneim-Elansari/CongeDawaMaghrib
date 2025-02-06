@@ -1,0 +1,155 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: serif;
+}
+.anime {
+    position: absolute;
+    width: 100%;
+    height: 110vh;
+    filter: drop-shadow(0 0 20PX #0ddbff);
+    background: linear-gradient(45deg,#f77a05,transparent,#0ddbff,transparent);
+    /* background: transparent */
+    /* animation: changeColore 5s linear infinite; */
+    filter: hue-rotate(10deg);
+
+}
+.cube {
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    width: 400px;
+    height: 400px;
+    
+}
+.cube div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: animate 6s linear infinite;
+   
+}
+@keyframes animate {
+    0%{
+        transform: rotateX(-20deg) rotateY(360deg);
+    }
+    100%{
+        transform: rotateX(-20deg) rotateY(0deg);
+    }
+}
+.cube .big span {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: url(../../../assets/images/DawaMaghribeImg.jpeg);
+    background-size: cover;
+    background-position: center;
+    transform: rotateY(calc(90deg*var(--i))) translateZ(200PX);
+    transform-style: preserve-3d;
+    transition: 0.25s;
+    animation: changeColore 20s linear infinite;
+}
+@keyframes changeColore {
+    0%{
+    filter: drop-shadow(0 0 20PX #0ddbff);     
+    }
+    30%{
+        filter: drop-shadow(0PX 0PX 20PX #f77a05);
+    }
+    70%{
+        filter: drop-shadow(0 0 20PX #0ddbff);     
+    }
+    100%{
+        filter: drop-shadow(0 0 20PX #0ddbff);     
+    }
+    }
+
+.cube .big span.top{
+    transform: rotateX(90deg) translateZ(200PX);
+    background: var(--clr);
+}
+
+.cube .big span.top::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translateZ(-350px);
+    /* background: rgba(0, 0, 0, 0.5); */
+    filter: blur(50px);
+}
+.cube:hover .big span {
+    background: transparent;
+    border: 10px solid #0ddbff;
+    filter: drop-shadow(0 0 20PX #0ddbff);
+    transition: 0.25s;
+    transform: translate(0,0);
+}
+
+
+.cube2 {
+    position: absolute;
+    top: 34%;
+    left: 38%;
+    width: 150px;
+    height: 150px;
+     transform: translate(100%,-180px);
+}
+.cube2 div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: animate2 6s linear infinite;
+   
+}
+@keyframes animate2  {
+    0%{
+        transform: rotateX(-20deg) rotateY(0deg);
+    }
+    100%{
+        transform: rotateX(-20deg) rotateY(360deg);
+    }
+}
+.cube2 .big span {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: var(--clr);
+    transform: rotateY(calc(90deg*var(--i))) translateZ(50PX);
+    transform-style: preserve-3d;
+    transition: 0.25s;
+   /* animation: changeColore 5s linear infinite;*/
+}
+/*@keyframes changeColore {
+    0%{
+        filter: hue-rotate(0deg);
+    }
+    100%{
+        filter: hue-rotate(360deg);
+    }
+    }*/
+.cube2 .big  span.top{
+    transform: rotateX(90deg) translateZ(50PX);
+    background: var(--clr);
+}
+
+.cube2 .big span.top::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translateZ(-145px);
+    background: rgba(0, 0, 0, 0.5);
+    filter: blur(50px);
+}
+.cube2:hover .big span {
+    background: transparent;
+    border: 10px solid #35ff0d;
+    filter: drop-shadow(0 0 20PX #35ff0d);
+    transition: 0.25s;
+    transform: translate(0,0);
+}

@@ -1,0 +1,66 @@
+
+<div class="body1">
+    <hr>
+    <mat-card>
+        <span>Gestion de conger</span>
+    </mat-card>
+    <mat-card>
+       <h5>filter les employes</h5>
+       <mat-form-field>
+        <input matInput (onChange)="filterAction()">
+       </mat-form-field>
+        <button mat-raised-button color="primary" (click)="addConger()">Ajouter</button>
+    </mat-card>
+    <hr>
+    <mat-dialog-content>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <!-- <ng-container matColumnDef="image">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let element">image</td>
+            </ng-container> -->
+            <ng-container matColumnDef="firstName">
+                <th mat-header-cell *matHeaderCellDef>FirstName</th>
+                <td mat-cell *matCellDef="let element">{{element.firstName}}</td>
+            </ng-container>
+            <ng-container matColumnDef="lastName">
+                <th mat-header-cell *matHeaderCellDef>LastName</th>
+                <td mat-cell *matCellDef="let element">{{element.lastName}}</td>
+            </ng-container>
+            <ng-container matColumnDef="service">
+                <th mat-header-cell *matHeaderCellDef>Services</th>
+                <td mat-cell *matCellDef="let element">{{element.service}}</td>
+            </ng-container>
+            <ng-container matColumnDef="poste">
+                <th mat-header-cell *matHeaderCellDef>Poste</th>
+                <td mat-cell *matCellDef="let element">{{element.poste}}</td>
+            </ng-container>
+            <ng-container matColumnDef="dure">
+                <th mat-header-cell *matHeaderCellDef>Encienneté</th>
+                <td mat-cell *matCellDef="let element">{{element.dure}}</td>
+            </ng-container>
+            <!--<ng-container matColumnDef="Edit" Fxflex>
+                <th mat-header-cell *matHeaderCellDef>Edit</th>
+                 <td mat-cell *matCellDef="let element">
+                <Grid item>
+                    <EditIcon />
+                  </Grid> 
+                  <svg data-testid="DeleteIcon"></svg>
+                  <span class="material-icons">edit</span>
+                  <button mat-raised-button class="btn rounded-circle" (click)="routerLink(element)">
+                    <span  class="material-icons" >
+                        edit 
+                    </span>
+                  </button>
+                </td>
+            </ng-container>-->
+            <!-- <ng-container mat-header-cell matColumnDef="anciennete">
+                <th mat-header-cell *matHeaderCellDef>encienneté</th>
+                <td mat-cell *matCellDef="let element">{{element.enciennete}}</td>
+            </ng-container> -->
+            <tr class="tr1" mat-header-row *matHeaderRowDef="displayedColumns;sticky:true"></tr>
+            <tr class="tr2" mat-row *matRowDef="let row;columns:displayedColumns" (click)="routerLink(row)"></tr>
+        </table>
+    </mat-dialog-content> 
+</div>
+
+

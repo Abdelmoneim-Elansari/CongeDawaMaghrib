@@ -1,0 +1,103 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span>{{action}} conger</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-dialog-content>
+    <form [formGroup]="employeForm" >
+        <div class="container" fxLayout="column">            
+            <mat-form-field>
+                <mat-label>first name</mat-label>
+                <input matInput formControlName="firstName" required>
+                <mat-error *ngIf="employeForm.controls.firstName.touched && employeForm.controls.firstName.invalid">
+                    <span ngIf="employeForm.controls.firstName.errors.required">this field is mondatory</span>
+                    <span ngIf="employeForm.controls.firstName.errors.valid">your name not valid</span>
+                </mat-error>
+            </mat-form-field>
+             <mat-form-field>
+                <mat-label>Last name</mat-label>
+                <input matInput formControlName="lastName" required>
+                <mat-error *ngIf="employeForm.controls.lastName.touched && employeForm.controls.lastName.invalid">
+                    <span ngIf="employeForm.controls.lastName.errors.required">this field is mondatory</span>
+                    <span ngIf="employeForm.controls.lastName.errors.valid">your name not valid</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+            <mat-label>contact number</mat-label>
+            <input matInput formControlName="contactNumber" required>
+            <mat-error *ngIf="employeForm.controls.contactNumber.touched && employeForm.controls.contactNumber.invalid">
+                <span ngIf="employeForm.controls.contactNumber.errors.required">ce champ est obligé</span>
+                <span ngIf="employeForm.controls.contactNumber.errors.maxlength">vous avez depasser 12 caractéres</span>
+                <span ngIf="employeForm.controls.contactNumber.errors.minlength">vous avez bosoin au moin 8 caractéres</span>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>email</mat-label>
+            <input  matInput formControlName="email" required >
+            <mat-error *ngIf="employeForm.controls.email.touched && employeForm.controls.email.invalid">
+                <span ngIf="employeForm.controls.email.errors.valid">votre mail pas valider!</span>
+            </mat-error>
+        </mat-form-field>
+        <input type="file" id="inputFill">
+        <mat-form-field>
+            <mat-label> Service </mat-label>
+            <input matInput formControlName="service" required>
+            <mat-error *ngIf="employeForm.controls.service.touched && employeForm.controls.service.invalid">
+                <span ngIf="employeForm.controls.service.errors.required">mal validation !</span>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label> poste </mat-label>
+            <input matInput formControlName="poste" required>
+            <mat-error *ngIf="employeForm.controls.poste.touched && employeForm.controls.poste.invalid">
+                <span ngIf="employeForm.controls.poste.errors.required">mal validation !</span>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>date d'inscription</mat-label>
+            <input matInput formControlName="TimeInscript" [matDatepicker]="picker1" >
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+        <!--<mat-form-field>
+            <mat-label>date de sorté</mat-label>
+            <input matInput formControlName="TimeGoing" [matDatepicker]="picker1" >
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+             <mat-error *ngIf="employeForm.controls.TimeGoing.touched && employeForm.controls.TimeGoing.invalid">
+                <span ngIf="employeForm.controls.TimeGoing.errors.valid">votre date pas valider!</span>
+            </mat-error> 
+          </mat-form-field> 
+          <mat-form-field>
+            <mat-label>date d'enter</mat-label>
+            <input matInput formControlName="openTime" [matDatepicker]="picker2" required>
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+             <mat-error *ngIf="employeForm.controls.openTime.touched && employeForm.controls.openTime.invalid">
+                <span ngIf="employeForm.controls.openTime.errors.valid">votre date pas valider!</span>
+            </mat-error>
+          </mat-form-field>-->          
+        <!-- <mat-form-field>
+          <mat-label>date de sorté</mat-label>
+          <input matInput formControlName="TimeGoing" required>
+          <mat-error *ngIf="employeForm.controls.TimeGoing.touched == employeForm.controls.TimeGoing.invalid">
+              <span *ngIf="employeForm.controls.TimeGoing.errors.valid">votre mail pas valider!</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>date d'enter</mat-label>
+          <input matInput formControlName="openTime" required>
+          <mat-error *ngIf="employeForm.controls.openTime.touched && employeForm.controls.openTime.invalid">
+              <span *ngIf="employeForm.controls.openTime.errors.valid"></span>
+          </mat-error>
+        </mat-form-field>  -->
+        </div>
+      </form>  
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="primery" (click)="handleSave()" [disabled]="(employeForm.invalid && employeForm.dirty)">save</button>
+    <button mat-raised-button mat-dialog-close>close</button>
+</mat-dialog-actions>

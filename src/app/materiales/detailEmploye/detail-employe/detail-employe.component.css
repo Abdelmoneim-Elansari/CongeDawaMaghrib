@@ -1,0 +1,62 @@
+mat-card-content{
+    justify-content: center;
+}
+.images {
+    position: -ms-page;
+}
+.images .imgUser{
+    top: 0px;
+    margin-left: 3%;
+    width: 180px;
+    height: 180px;
+    border-radius: 50px 0 50px 0 ;
+    transition: 0.8s;
+}
+.images .imgUser:hover{
+    top: -30px;
+    margin-left: 3%;
+    width: 230px;
+    height: 230px;
+    border-radius: 50% ;
+    box-shadow: 10px 10px 100px #f77a05,
+    15px 20px 50px #f77a05;
+}
+.images .imgDawa{
+    top: -40px;
+    width: auto;
+    height: 250px;
+    border-radius:50px 0 50px 0;
+    background-size: cover;
+    transition: 0.5s;
+} 
+.images .imgDawa:hover{
+    margin: 7px;
+    top: -40px;
+    width: auto;
+    height: 245px;
+    border-radius:0 50px 0 50px ;
+    box-shadow: -10px 10px 100px #f77a05,
+    -15px 20px 50px #f77a05;
+} 
+.Ajouter{
+    width: 10%;
+    font-size: 100%;
+}
+th{
+    font-size: 100%;
+}
+mat-card{
+    background: linear-gradient(45deg,#f77a05,transparent,#0ddbff,#0ddbff,transparent);
+    /* filter: blur(5px); */
+    
+}
+.container{
+    width: 100%;
+    background: transparent;
+}
+.tr1{
+    background: linear-gradient(180deg,#f77a05,transparent);
+}
+.tr2:hover{
+    background: linear-gradient(180deg,#0ddbff,transparent);
+}

@@ -1,0 +1,66 @@
+<mat-card>
+    <mat-card-header fxLayout="column" fxLayoutGap="40px">
+        
+        <div class="header">
+            <div class="images"  fxLayoutGap="10%" >
+                <img class="imgUser" mat-card-image src="../../../../assets/images/abdelmoneim.jpg" >
+                <div fxFlex align="center">
+                <img class="imgDawa" mat-card-image src="../../../../assets/images/DawaMaghribeImg3.jpeg" >
+                </div>    
+            </div>
+        </div>
+        
+        <div fxLayout="row" fxLayoutGap="auto">
+            <h2>{{employe.name}}</h2>
+            <button class="Ajouter" mat-raised-button color="primary" (click)="handladdTime()">Ajouter</button>
+        </div>
+    </mat-card-header>
+    <hr>
+    <mat-card-content class="container" fxLayout="row" fxLayoutGap="20%" align="center">
+        <div class="content" align="center">
+            <span><h3>service</h3></span>
+            <span>{{employe.service}}</span>
+        </div>
+        <div class="content" align="center">
+            <Span><h3>Poste</h3></Span>
+            <span>{{employe.poste}}</span>
+        </div>
+        <div class="content" align="center">
+            <span><h3>le reste</h3></span>
+            <span>{{employe.reste}}</span>
+        </div>
+    </mat-card-content>
+    <hr>
+    <mat-card-actions>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let element">{{element.timeId}}</td>
+            </ng-container>
+            <ng-container matColumnDef="dateSorter">
+                <th mat-header-cell *matHeaderCellDef><h6>date sorter</h6></th>
+                <td mat-cell *matCellDef="let element">{{element.dateSorter}}</td>
+            </ng-container>
+            <ng-container matColumnDef="dateEntre">
+                <th mat-header-cell *matHeaderCellDef><h6>date d'entre</h6></th>
+                <td mat-cell *matCellDef="let element"><span>{{element. dateEntrer}}</span></td>
+            </ng-container>
+            <ng-container matColumnDef="dure">
+                <th mat-header-cell *matHeaderCellDef><h6>la dure</h6></th>
+                <td mat-cell *matCellDef="let element">{{element.dure}}</td>
+            </ng-container>
+            <ng-container matColumnDef="delete">
+                <th mat-header-cell *matHeaderCellDef><h6>Deleted</h6></th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-raised-button class="btn rounded-circle" (click)="deleteTime(element)">
+                        <span  class="material-icons" >
+                            delete 
+                        </span>
+                    </button>
+                </td>
+            </ng-container>
+            <tr class="tr1" mat-header-row *matHeaderRowDef="displayedColumns;sticky:true"></tr>
+            <tr class="tr2" mat-row *matRowDef="let row;columns:displayedColumns"></tr>
+    </table>    
+    </mat-card-actions>
+</mat-card>

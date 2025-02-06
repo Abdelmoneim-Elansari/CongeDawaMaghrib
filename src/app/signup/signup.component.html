@@ -1,0 +1,58 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
+        <span>signUp</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-dialog-content>
+<form [formGroup]="signUpForm">
+    <div fxLayout="column">
+        <mat-form-field appearance="fill" >
+            <mat-label> name</mat-label>
+            <input matInput formControlName="name" required>
+            <mat-error *ngIf="signUpForm.controls.name.touched && signUpForm.controls.name.invalid">
+                <span *ngIf="signUpForm.controls.name.errors.required">this field is mondatory</span> 
+                <span *ngIf="signUpForm.controls.name.errors.pattern">your name not valid</span>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label> contact number</mat-label>
+            <input matInput formControlName="contactNumber">
+            <mat-error *ngIf="signUpForm.controls.contactNumber.touched && signUpForm.controls.contactNumber.invalid">
+                <span *ngIf="signUpForm.controls.contactNumber.errors.required">this field is mondatory</span> 
+                <span *ngIf="signUpForm.controls.contactNumber.errors.pattern">votre numero pas valider</span>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label> email</mat-label>
+            <input matInput formControlName="email" required>
+            <mat-error *ngIf="signUpForm.controls.email.touched && signUpForm.controls.email.invalid">
+                <span *ngIf="signUpForm.controls.email.errors.required">this field is mondatory</span> 
+                <span *ngIf="signUpForm.controls.email.errors.pattern">your email not valid</span>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label> password</mat-label>
+            <input matInput formControlName="password" required>
+            <mat-error *ngIf="signUpForm.controls.password.touched && signUpForm.controls.name.invalid">
+                <span *ngIf="signUpForm.controls.password.errors.required">this field is mondatory</span> 
+                <span *ngIf="signUpForm.controls.password.errors.minlength">votre password a besoin d'aprendre au moin 8 chiffres </span>
+                <span *ngIf="signUpForm.controls.password.errors.maxlength">vous avez dépasser 12 chiffres</span>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label> confirmPassword</mat-label>
+            <input matInput formControlName="confirmPassword" required>
+            <mat-error *ngIf="signUpForm.controls.confirmPassword.touched && signUpForm.controls.name.invalid">
+                <span *ngIf="signUpForm.controls.confirmPassword.errors.required">this field is mondatory</span> 
+                <span *ngIf="signUpForm.controls.confirmPassword.errors.minlength">votre password a besoin d'aprendre au moin 8 chiffres </span>
+                <span *ngIf="signUpForm.controls.confirmPassword.errors.maxlength">vous avez dépasser 12 chiffres</span>
+                <span *ngIf="comparPassword()">votre password pas confirmer</span>
+            </mat-error>
+        </mat-form-field>
+    </div>
+</form>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="primary" (click)="handelSubmit()">save</button>
+    <button mat-raised-button color="red" mat-dialog-close>close</button>
+</mat-dialog-actions>
