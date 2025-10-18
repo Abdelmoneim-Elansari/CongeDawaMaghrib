@@ -1,0 +1,16 @@
+mat-toolbar{
+    background: linear-gradient(180deg,#f77a05,transparent);
+}
+mat-expansion-panel{
+    background: linear-gradient(180deg,#0ddbff,transparent);
+}
+@media(max-width : 75%) {
+    table:nth-child(3){
+        display: none;
+    }
+    @media(max-width : 60%) {
+    table:nth-child(2){
+        display: none;
+    }
+}
+}

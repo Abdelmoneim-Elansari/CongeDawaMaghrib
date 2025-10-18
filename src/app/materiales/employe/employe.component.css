@@ -1,8 +1,11 @@
 .body1{
     background: linear-gradient(45deg,#f77a05,transparent,#0ddbff,transparent);
     filter: hue-rotate(10deg);
+    min-height: 100vh;
+
 }
 mat-card{
+    padding-top: 10px;
     animation: animate 6s linear infinite;
 }
 @keyframes animate {
@@ -25,4 +28,17 @@ th{
 .tr2:hover{
     background: linear-gradient(180deg,#27daf9,transparent);
     /* background: rgb(234, 238, 238); */
+}
+.btnAdd{
+    width: 20%;
+    height: 55px;
+    transition: 0.5s;
+    
+}
+.btnAdd:hover{
+    width: 30%;
+    margin-right: 5%;
+}
+td{
+    font-size: large;
 }

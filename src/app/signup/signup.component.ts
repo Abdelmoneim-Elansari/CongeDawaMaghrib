@@ -41,12 +41,12 @@ export class SignupComponent implements OnInit {
       password : dataForm.password,
       confirmPassword : dataForm.confirmPassword,
       status : "false",
-      role : "admin"
+      role : "user"
     }
 
     this.userService.signUp(data).subscribe({next: (response:any) => {
       this.responseMessage = response.message;
-      this.dialogRef.close;
+      this.dialogRef.close();
       this.snackbarService.openSnackbar(this.responseMessage,'')
     },error: (err) => {
       if (err.error?.message) {

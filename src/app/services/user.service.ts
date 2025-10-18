@@ -23,4 +23,21 @@ export class UserService {
     })
   }
 
+  getAll(){
+    return this.http.get(this.url+'getAll',{
+      headers : new HttpHeaders().set('content-type','application/json')
+    } )
+  }
+
+  updateSatus(data:any){
+    return this.http.patch(this.url+ "updateStatus",data,{
+      headers : new HttpHeaders().set("content-type",'application/json')
+    })
+  }
+
+  deleteUser(id:any){
+    return this.http.delete(this.url + "deleted/"+id,{
+      headers : new HttpHeaders().set("content-type","application/json")
+    })
+  }
 }

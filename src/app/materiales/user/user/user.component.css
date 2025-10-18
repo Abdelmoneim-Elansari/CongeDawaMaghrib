@@ -1,0 +1,59 @@
+.body1{
+    background: linear-gradient(45deg,#f77a05,transparent,#0ddbff,transparent);
+    filter: hue-rotate(10deg);
+}
+.sideNave{
+    margin-top: 18px;
+    position: fixed; 
+    opacity: 0;
+    width: 4%;
+    top:80px;
+    right: -20px;
+    transition: 7s;
+}
+.sideNave:hover{
+    margin-top: 18px;
+    position: absolute;
+    opacity: 1;
+    width: 400px;
+    max-height: 80vh;
+    box-shadow:-300px 100px 2000px #4a4139,
+    0 100px 2000px #4a4139,
+    -700px 100px 2000px #0ddbff,
+    -1100px 100px 1000px #f77a05;
+    overflow-y: scroll;
+    top:80px;
+    right: 0;
+    transition: 0.7s;
+}
+.dialog:hover {
+    opacity: 1;  
+}
+.tr1{
+    background: linear-gradient(180deg,#f77a05,transparent);
+}
+td:hover{ 
+    font-size: medium;
+}
+.tr2:hover{
+    background: linear-gradient(180deg,#27daf9,transparent);
+
+    /* background: rgb(234, 238, 238); */
+}
+ 
+.btnAdd{
+    width: 20%;
+    height: 55px;
+    transition: 0.5s;
+    
+}
+.btnAdd:hover{
+    width: 30%;
+    margin-right: 5%;
+}
+.action-link:hover{
+    transition: 0.3s;
+    transform: translateX(-30px);
+}
+
+

@@ -1,0 +1,45 @@
+
+<div class="body1">
+<hr>
+<mat-dialog-content   style="height: auto;">
+    <mat-card style="margin: 30px;" fxLayout="row" fxFlexAlign="center">
+            <mat-form-field fxFlex>
+                <mat-label>filter</mat-label>
+                <input matInput (keyup)="filterUser($event)" >
+            </mat-form-field>
+        <button class="btnAdd" mat-raised-button color="primary" (click)="addUser()">Ajouter un utilisateur</button>
+    </mat-card>
+    <hr>
+    <mat-card-content>
+        <table mat-table [dataSource]="datasource" class="mat-elevation-z8">
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>firstName</th>
+            <td mat-cell *matCellDef="let element">{{element.name}}</td>
+        </ng-container>
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef>E-mail</th>
+            <td mat-cell *matCellDef="let element">{{element.email}}</td>
+        </ng-container>
+        <ng-container matColumnDef="contactNumber">
+            <th mat-header-cell *matHeaderCellDef>contact number</th>
+            <td mat-cell *matCellDef="let element">
+                {{element.contactNumber}} 
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef dir="rtl"><span>Action</span></th>
+            <td mat-cell *matCellDef="let element" class="action-link" fxLayoutGap="15px" dir="rtl">   
+                <button mat-raised-button (click)="deletedUser(element.id)" [disabled]="role !== 'admin'"><span class="material-icons" style="color: red;">delete_sweep</span></button> 
+                <button mat-raised-button (click)="updateUser(element.id)"  [disabled]="role !== 'admin'"><span class="material-icons" style="color: rgb(19, 11, 241);">edit</span></button>
+                 <mat-slide-toggle (change)="updateStatus($event.checked,element.id)" 
+                matToolTip="activer ou desactiver un utilisateur" [checked]="element.status == true"  [disabled]="role !== 'admin'"></mat-slide-toggle>
+            </td>
+        </ng-container>
+        <tr class="tr1" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr class="tr2" mat-row *matRowDef="let row;columns:displayedColumns"></tr>
+    </table>
+    </mat-card-content>
+    
+</mat-dialog-content>
+</div>
+<app-frie-tab id="mySideNav" class="sideNave"></app-frie-tab>

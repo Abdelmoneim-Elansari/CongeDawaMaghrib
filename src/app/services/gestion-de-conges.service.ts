@@ -43,7 +43,7 @@ export class GestionDeCongesService {
   }
   
   deletedEmploye(id:any){
-    return this.http.delete(this.url + id,{
+    return this.http.delete(this.url +'delete/' + id,{
       headers: new HttpHeaders().set('content-type','application/json')
     })
   }

@@ -9,14 +9,14 @@
     height: 110vh;
     filter: drop-shadow(0 0 20PX #0ddbff);
     background: linear-gradient(45deg,#f77a05,transparent,#0ddbff,transparent);
-    /* background: transparent */
-    /* animation: changeColore 5s linear infinite; */
+   /* background: transparent ;
+    animation: changeColore 5s linear infinite; */
     filter: hue-rotate(10deg);
 
 }
 .cube {
     position: absolute;
-    top: 30%;
+    top: 15%;
     left: 40%;
     width: 400px;
     height: 400px;
@@ -77,7 +77,6 @@
     position: absolute;
     inset: 0;
     transform: translateZ(-350px);
-    /* background: rgba(0, 0, 0, 0.5); */
     filter: blur(50px);
 }
 .cube:hover .big span {
@@ -115,15 +114,15 @@
         transform: rotateX(-20deg) rotateY(360deg);
     }
 }
-.cube2 .big span {
+/*.cube2 .big span {
     position: absolute;
     width: 150px;
     height: 150px;
     background: var(--clr);
     transform: rotateY(calc(90deg*var(--i))) translateZ(50PX);
     transform-style: preserve-3d;
-    transition: 0.25s;
-   /* animation: changeColore 5s linear infinite;*/
+    transition: 0.25s;*/
+   /* animation: changeColore 5s linear infinite;
 }
 /*@keyframes changeColore {
     0%{
@@ -133,7 +132,7 @@
         filter: hue-rotate(360deg);
     }
     }*/
-.cube2 .big  span.top{
+/*.cube2 .big  span.top{
     transform: rotateX(90deg) translateZ(50PX);
     background: var(--clr);
 }
@@ -153,3 +152,66 @@
     transition: 0.25s;
     transform: translate(0,0);
 }
+
+
+/*animation effect
+
+
+
+.container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #042104;
+
+}
+
+.loader {
+    position: relative;
+    transform: rotate(calc(45deg*var(--j)));
+}
+
+.loader span {
+    position: absolute;
+    transform: rotate(calc(18deg*var(--i)));
+    transform: translate();
+}
+
+.loader:nth-child(2n+1) span::before{
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #09dbde;
+    border-radius:2px;
+    animation: animate 5s linear infinite;
+    animation-delay: calc(-0.5s*var(--i));
+}
+.loader:nth-child(even) span::before{
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: #09de09;
+    border-radius:2px;
+    transform: translateY(100px);
+    animation: animate 5s linear infinite;
+    animation-delay: calc(-0.5s*var(--i));
+}
+@keyframes animate {
+    0%{
+        transform: translateX(400px) scale(4);
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        transform: translateX(-10px) scale(0);
+        
+    }
+    100%{
+        transform: translateX(250px) scale(4);
+    }
+}*/

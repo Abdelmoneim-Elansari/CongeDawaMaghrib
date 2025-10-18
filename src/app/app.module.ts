@@ -22,10 +22,15 @@ import { EmployeComponent } from './materiales/employe/employe.component';
 import { GestionComponent } from './materiales/employe/gestionConger/gestion/gestion.component';
 import { MatTableModule } from '@angular/material/table';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { MatNativeDateModule } from '@angular/material/core';
 import { DetailEmployeComponent } from './materiales/detailEmploye/detail-employe/detail-employe.component';
 import EditIcon from '@mui/icons-material/Edit';
 import { ManageTimeComponent } from './materiales/detailEmploye/detail-employe/gestionTime/manage-time/manage-time.component';
+import { UserComponent } from './materiales/user/user/user.component';
+import { FullComponent } from './full/full/full.component';
+import { FrieTabComponent } from './materiales/user/user/vaconce/frie-tab/frie-tab.component';
+import {MatExpansionModule } from '@angular/material/expansion'
 
 
 
@@ -40,6 +45,9 @@ import { ManageTimeComponent } from './materiales/detailEmploye/detail-employe/g
     GestionComponent,
     DetailEmployeComponent,
     ManageTimeComponent,
+    UserComponent,
+    FullComponent,
+    FrieTabComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,12 +62,13 @@ import { ManageTimeComponent } from './materiales/detailEmploye/detail-employe/g
     MatInputModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatDialogModule,
     MatSnackBarModule,
     MatCardModule,
     MatTableModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatSlideToggleModule,
+    MatExpansionModule
     
     
     

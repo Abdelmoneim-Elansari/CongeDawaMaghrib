@@ -14,7 +14,6 @@ export class LeaveTimeService {
   }
 
   addTime(data:any){
-    console.log('ok --')
     return this.Http.post(this.url + 'insert',data ,{
       headers : new HttpHeaders().set('content-type','application/json')
     })
@@ -27,7 +26,6 @@ export class LeaveTimeService {
   }
 
   deleteTime(data:any,id:any){
-    // console.log(id);
     
     return this.Http.delete(this.url + 'deleted/'+id+"/"+data.idE+"/"+data.dure ,{
       headers: new HttpHeaders().set('content-type','application/json'),

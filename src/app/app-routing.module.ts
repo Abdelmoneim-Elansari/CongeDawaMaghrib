@@ -5,11 +5,15 @@ import { EmployesComponent } from './employés/employes/employes.component';
 import { EmployeComponent } from './materiales/employe/employe.component';
 import { DetailEmployeComponent } from './materiales/detailEmploye/detail-employe/detail-employe.component';
 import { RouteGuardService } from './services/route-guard.service';
+import { UserComponent } from './materiales/user/user/user.component';
+import { FullComponent } from './full/full/full.component';
 
 const routes: Routes = [
   {path : "home",component : HommeComponent},
   {path: "",redirectTo : "home",pathMatch : "full"},
-  {path : "employes",component : EmployeComponent,
+  {path: 'full',component: FullComponent,
+    children: [
+      {path : "employes",component : EmployeComponent,
     canActivate :[RouteGuardService],
     data : {
       expectedRole : ['admin','user']
@@ -19,7 +23,14 @@ const routes: Routes = [
     data : {
       expectedRole : ['admin','user']
     }
-  }
+  },
+  {path : "user",component : UserComponent,canActivate : [RouteGuardService],
+    data : {
+      expectedRole : ['admin','user']
+  }}
+    ]
+  },
+  
 ];
 
 @NgModule({

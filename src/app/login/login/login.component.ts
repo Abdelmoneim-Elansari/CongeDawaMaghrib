@@ -37,11 +37,10 @@ export class LoginComponent implements OnInit {
     }
 
     this.userService.login(data).subscribe({next: (response:any) => {
-      //  console.log(response);
       this.responseMessage = "Login...";
       this.dialogRef.close();
       localStorage.setItem('token',response.token);
-      this.router.navigate(['/employes']);
+      this.router.navigate(['/full/employes']);
     },error: (error:any) => {
       if(error.error?.message){
         this.responseMessage = error.error?.message;

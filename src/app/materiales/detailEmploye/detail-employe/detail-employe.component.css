@@ -26,6 +26,7 @@ mat-card-content{
     width: auto;
     height: 250px;
     border-radius:50px 0 50px 0;
+    opacity: 0.85;
     background-size: cover;
     transition: 0.5s;
 } 
@@ -35,6 +36,7 @@ mat-card-content{
     width: auto;
     height: 245px;
     border-radius:0 50px 0 50px ;
+    opacity: 1;
     box-shadow: -10px 10px 100px #f77a05,
     -15px 20px 50px #f77a05;
 } 

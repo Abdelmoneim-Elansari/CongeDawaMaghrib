@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar'
+import { ManageTimeComponent } from '../materiales/detailEmploye/detail-employe/gestionTime/manage-time/manage-time.component';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class SnackbarService {
   openSnackbar(message:string,action:string ){
     if (action === 'error') {
       this.snackbar.open(message,'',{
-        horizontalPosition : 'center',
+        horizontalPosition : 'end',
         verticalPosition : 'top',
         duration : 2000,
         panelClass : ['black-snackbar']
@@ -25,5 +26,5 @@ export class SnackbarService {
       })
     }
   }
-
+  
 }

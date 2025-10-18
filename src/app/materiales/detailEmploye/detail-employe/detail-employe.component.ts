@@ -22,8 +22,11 @@ export class DetailEmployeComponent implements OnInit{
     name :'--',
     service : '',
     poste : '',
-    reste : 0
+    reste : 0,
+    dateInscript : ''
   }
+  periodTime:any;
+  MonthLimitTime:any;
   constructor(
     private route:ActivatedRoute,
     private leaveTimeService:LeaveTimeService,
@@ -33,13 +36,23 @@ export class DetailEmployeComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
+    this.runPage()
+   
+  }
+
+  runPage(){
     const id:Number = Number(this.route.snapshot.paramMap.get('id'));
     this.route.queryParams.subscribe((element) => {
       this.employe.name = element['firstName'] + ' ' + element['lastName']
       this.employe.service = element['service'];
       this.employe.poste = element['poste'];
-      this.employe.reste = 30 - element['dure']
+      this.employe.reste = 30 - element['dure'];
+      this.employe.dateInscript = element['dateInscter'];
     })
+    const dateIns = new Date(this.employe.dateInscript)
+    var date = new Date()
+    this.periodTime = date.getTime() - dateIns.getTime()
+    this.MonthLimitTime = (365.25/12)*8*24*60*60*1000;
     this.getAllTime(id)  ;
     this.employeId = id;
   }
@@ -47,7 +60,6 @@ export class DetailEmployeComponent implements OnInit{
   getAllTime(id:any){
     this.leaveTimeService.getAll(id).subscribe({next: (response:any) => {
       this.dataSource = new MatTableDataSource(response);
-      // console.log(this.dataSource)
   },error: (err:any) => {
       if(err.error?.message){
         this.responseMessage = err.error?.message;
@@ -65,6 +77,7 @@ export class DetailEmployeComponent implements OnInit{
     dialogConfig.data = {
       id : this.employeId,
       // action : action
+      status : (this.periodTime > this.MonthLimitTime)
     }
     this.dialog.open(ManageTimeComponent,dialogConfig);
     this.dialog.afterAllClosed.subscribe(() => {
@@ -73,7 +86,6 @@ export class DetailEmployeComponent implements OnInit{
     }
 
   deleteTime(element:any){
-    // console.log(typeof this.dataSource)
     var data = {
       id : element.timeId,
       idE : element.employeId,
@@ -82,8 +94,6 @@ export class DetailEmployeComponent implements OnInit{
     this.leaveTimeService.deleteTime(data,element.timeId).subscribe({next : (response:any) => {
       // this.dataSource.
       this.getAllTime(this.employeId);
-      console.log(typeof element.dure)
-      this.employe.reste += element.dure;
       this.responseMessage = response.message;
       this.snackbarService.openSnackbar(this.responseMessage,'');
     },error : (error:any) => {

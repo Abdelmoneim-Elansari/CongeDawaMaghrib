@@ -1,0 +1,67 @@
+<div>
+<mat-toolbar>
+    <mat-toolbar-row>
+     les jours féries
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-card>
+    <hr>
+<mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+        <mat-expansion-panel-header>
+            <mat-panel-titel><h6>ajouter un jour ferie</h6></mat-panel-titel>
+        </mat-expansion-panel-header>
+        <mat-card-content class="addHD">
+       <form [formGroup]="dayForm">
+        <div class="container" fxLayout="column">
+            <mat-form-field fxFlex>
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="dayName">
+        </mat-form-field>
+         <mat-form-field fxFlex>
+            <mat-label>number of days</mat-label>
+            <input matInput formControlName="numDays">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label> Calondrier</mat-label>
+            <input matInput type="date" formControlName="date">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <!--mat-datepicker-toggle [matDatepicker]="picker" en input matIconsuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker-->
+        </mat-form-field>
+        </div>  
+      <div align="center">
+         <button type="submit" mat-raised-button color="primary" (click)="addHoliday()" [disabled]="!(dayForm.valid && dayForm.dirty)" >save</button>
+      </div>  
+      </form>
+
+     
+    </mat-card-content>
+    </mat-expansion-panel>
+</mat-accordion>
+    
+    <hr>
+    <mat-card-actions>
+        <table mat-table [dataSource]="datasource" class="mat-elevation-z8">
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef>Jour férie</th>
+                <td mat-cell *matCellDef="let element">{{element.nameDay}}</td>
+            </ng-container>
+            <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef>La date</th>
+                <td mat-cell *matCellDef="let element">{{element.date}}</td>
+            </ng-container>
+            <ng-container matColumnDef="numDays">
+                <th mat-header-cell *matHeaderCellDef>num days</th>
+                <td mat-cell *matCellDef="let element">{{element.numDays}}</td>
+            </ng-container>    
+            <ng-container matColumnDef="delHD">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let element"><button mat-raised-button color="#537278" (click)="delHoliday(element)"><span style="color: red;" class="material-icons">delete_sweep</span></button></td>
+            </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayColumns;matColumnDef"></tr>
+        <tr mat-row *matRowDef="let row;columns:displayColumns"></tr>
+        </table>
+    </mat-card-actions>
+</mat-card>
+</div>

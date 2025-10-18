@@ -1,0 +1,7 @@
+.btn-out{
+    transform: translateX(80px);
+    transition: 0.5s;
+}
+.btn-out:hover{
+    transform: translateX(30px);
+}

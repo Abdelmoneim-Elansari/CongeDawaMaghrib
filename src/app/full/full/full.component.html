@@ -1,0 +1,18 @@
+<mat-card>
+    <mat-card-header>
+        <mat-toolbar>
+             <mat-toolbar-row fxlayout="row" fxLayoutGap="auto">
+                <!--button mat-raised-button (click)="routeToUser()">{{pageName}}</button-->
+                <div fxLayoutGap="4%">
+                    <button mat-raised-button *ngIf="pageName != '/full/user'" (click)="routeToUser()">User</button>
+                    <button mat-raised-button *ngIf="pageName != '/full/employes'" (click)="routeToEmploye()">Employe</button>
+                </div>
+            
+                <button class="btn-out" mat-raised-button (click)="lignout()">out</button>
+             </mat-toolbar-row>
+        </mat-toolbar>
+       
+        
+    </mat-card-header>
+</mat-card>
+<router-outlet></router-outlet>

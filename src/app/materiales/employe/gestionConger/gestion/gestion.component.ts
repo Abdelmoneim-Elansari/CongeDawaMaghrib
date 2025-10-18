@@ -93,6 +93,10 @@ export class GestionComponent implements OnInit {
     var dataForm = this.employeForm.value;
     var DS = new Date(dataForm.TimeGoing)
     var DE = new Date(dataForm.openTime)
+    var date = new Date(dataForm.TimeInscript)
+    var day = date.getDate()
+    var month = date.getMonth() 
+    var year = date.getFullYear()
     var data = {
       firstName : dataForm.firstName,
       lastName : dataForm.lastName,
@@ -100,7 +104,7 @@ export class GestionComponent implements OnInit {
       email : dataForm.email,
       service : dataForm.service,
       poste : dataForm.poste,
-      TimeInscripet : dataForm.TimeInscript,
+      TimeInscripet : year +'/'+ month +'/'+ day,
       image : this.imagName
     }
 
